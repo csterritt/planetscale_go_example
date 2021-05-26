@@ -20,6 +20,9 @@ ENV DEBIAN_FRONTEND noninteractive
 #RUN chmod +x /usr/bin/dumb-init
 RUN apt-get update && apt-get -y install dumb-init
 
+# Install latest certificates
+RUN apt-get -y install ca-certificates
+
 # Install planetscale cli
 COPY pscale_0.38.0_linux_amd64.deb pscale_0.38.0_linux_amd64.deb
 RUN dpkg -i pscale_0.38.0_linux_amd64.deb
