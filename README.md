@@ -10,7 +10,34 @@ To run it, install the `pscale` PlanetScale cli tool, the current go compiler
 First, create a database on PlanetScale and give it a name. Mine is named
 `firstexample`.
 
-Then, from the command line, run:
+First, you can try running this directly.
+
+Run:
+
+~~~
+go build
+~~~
+
+to create the `ps_ws_ex` executable, then run:
+
+~~~
+PORT=4000 pscale connect firstexample main --execute ./ps_ws_ex
+~~~
+
+You can then use (e.g.) the `curl` command line tool to hit the service from another
+terminal window:
+
+~~~
+curl -X POST http://localhost:4000/get-reminder
+~~~
+
+----
+
+Next, we'd like to run this in production, for which we'll need a service token.
+
+Stop the program started above.
+
+To generate the service token from the command line, run:
 
 ~~~
 pscale service-token create
@@ -32,11 +59,4 @@ Finally, run:
 ~~~
 docker build -t pscale_test .
 docker run --rm -w /app -p 4000:8080 pscale_test
-~~~
-
-You can then use (e.g.) the `curl` command line tool to hit the service from another 
-window:
-
-~~~
-curl -X POST http://localhost:4000/get-reminder
 ~~~
