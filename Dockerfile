@@ -29,7 +29,7 @@ RUN dpkg -i pscale_0.38.0_linux_amd64.deb
 RUN rm pscale_0.38.0_linux_amd64.deb
 
 # Set planetscale environmental variables
-ENV PLANETSCALE_ORG=chris-st
+ENV PLANETSCALE_ORG=your_org_name_here
 ENV PLANETSCALE_SERVICE_TOKEN_NAME=your_service_token_name_here
 ENV PLANETSCALE_SERVICE_TOKEN=your_service_token_here
 
